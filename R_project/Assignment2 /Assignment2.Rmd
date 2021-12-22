@@ -1,0 +1,230 @@
+
+## Problem 1(30 pts)
+#### We can instill this library and load the dataset using the 
+#### folowing code chunk.
+
+```{r}
+library(nycflights13)
+flights
+library(ggplot2)
+library(dplyr)
+
+```
+
+### Q.N.1
+#### Using sched_dep_time to visualize the departure times of cancelled is (FALSE)
+#### and not calcelled with (TRUE). With two plots density and box plot.
+
+```{r}
+
+fligh <- 
+  flights %>%
+  mutate(
+    cancelled = is.na(dep_time),
+    sched_dep_time_convert = hour + minute / 60
+  )
+fligh %>%
+  ggplot(aes(sched_dep_time_convert, colour = cancelled)) +
+  geom_density()
+fligh %>%
+  ggplot(aes(cancelled, sched_dep_time_convert)) +
+  geom_boxplot()
+
+```
+
+### Q.N.2
+#### Boxplot of the temperatures, grouped by months.
+
+```{r}
+weather
+ggplot(weather, aes(x = month, y = temp, group = month)) +
+geom_boxplot(na.rm = TRUE)
+```
+
+#### Second way without ggplot
+```{r}
+boxplot(data = weather, temp~month)
+
+```
+
+### Q.N.3
+#### Visualize the proportion of cancelled flights each day aginst the average 
+#### daily temp. group by airports of origin (EWR, JFK, LGA). 
+
+```{r}
+cancelled_flights <- flights %>% group_by(origin) %>% 
+  summarize(pct_cancelled = mean(is.na(arr_delay) |is.na(dep_delay)))
+
+average_temp <- weather %>% group_by(origin) %>% summarize(avg_temp = mean(temp, 
+                                                                na.rm =TRUE))
+cancelled_flights %>% mutate(newDay = as.numeric(as.Date(paste(2013,2,24,
+  sep="/"),format="%Y/%m/%d") -as.Date("2013/01/01",format="%Y/%m/%d")))
+
+average_temp %>% mutate(newDa = as.numeric(as.Date(paste(2013,3,25,
+  sep="/"),format="%Y/%m/%d") -as.Date("2013/01/01",format="%Y/%m/%d")))
+
+combine_data <- left_join(cancelled_flights, average_temp, by = "origin")
+
+data_visualize <- ggplot(data = combine_data) +
+  geom_point(mapping = aes(x = pct_cancelled, y = avg_temp, color = origin)) +
+  xlab("Propertion of cancelled Flights") + ylab("Average daily temperature")
+data_visualize
+
+```
+
+### Q.N.4
+#### Visualize the arrival delay for flights to the top twenty most popular 
+#### destinations, grouped by destinations.
+
+```{r}
+flights %>% group_by(dest) %>%
+  filter(n() > 365, arr_delay > 743) %>%
+  summarise(dest) %>% count()
+
+FRAME <- filter(flights, arr_delay >743) %>% group_by(dest) 
+FRAME 
+
+```
+
+#### Try to find top twenty most popular destination.
+
+```{r}
+ggplot(data = FRAME) +
+  geom_point(mapping = aes(x = arr_delay, y = arr_time, color = dest)) 
+```
+
+## Problem 2 (20pts)
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(RColorBrewer)
+library(dslabs)
+
+```
+
+### 10.15 Exercise
+#### Q.N.1.Reproduce the image plot we previously made now for smallpox.For this 
+#### plot, do not include years in which cases were not reported in 10 or more
+#### weeks.
+
+```{r}
+the_disease <- "Smallpox" 
+dat <- us_contagious_diseases %>%
+  filter(!state%in%c("Hawaii", "Alaska") & disease == the_disease & weeks_reporting >= 10) %>%
+  mutate(rate = count/population *10000) %>%
+  mutate(state = reorder(state, rate))
+
+dat %>% ggplot(aes(year, state, fill = rate)) +
+  geom_tile(color = "grey50") +
+  scale_x_continuous(expand = c(0,0)) +
+  scale_fill_gradientn(colors = brewer.pal(9,"BuPu"), trans = "sqrt") +
+  theme_minimal() +
+  theme(panel.grid = element_blank()) +
+        ggtitle(the_disease) +
+        ylab("") + xlab("")
+```
+
+
+#### Q.N.2.Now reproduce the image plot we previously made, but this time 
+#### following the instructions of the previous question for smallpox.
+```{r}
+the_disease <- "Smallpox" 
+dat <- us_contagious_diseases %>%
+  filter(!state%in%c("Hawaii", "Alaska") & disease == the_disease & weeks_reporting >= 10) %>%
+  mutate(rate = count/population *10000) %>%
+  mutate(state = reorder(state, rate))
+
+avg <- us_contagious_diseases %>%
+  filter(disease == the_disease) %>% group_by(year) %>%
+  summarize(us_rate = sum(count, na.rm = TRUE)/
+              sum(population, na.rm = TRUE) * 10000)
+dat %>% filter(!is.na(rate)) %>% ggplot() +
+  geom_line(aes(year, rate, group = state), color = "grey50",
+            show.legend = FALSE, alpha = 0.2, size = 1) +
+  geom_line(mapping = aes(year, us_rate), data = avg, size = 1) +
+  scale_y_continuous(trans = "sqrt", breaks = c(5,25,125,300)) +
+  ggtitle("Cases per 10,000 by state") +
+  xlab("") + ylab("")+
+geom_text(data = data.frame(x = 1955, y = 50),
+          mapping = aes(x,y,label = "Us average"),
+          color = "black") +
+  geom_vline (xintercept = 1963, col = "blue")
+```
+
+#### Q.N.3.For the state of California, make a time series plot showing rates 
+#### for all diseases. Include only years with 10 or more weeks reporting. 
+#### Use a different color for each disease. Help of #4 we done (rate by using 
+#### summarize the total divided by total Pop).
+```{r}
+us_contagious_diseases %>% filter(state == "California" & 
+                                    weeks_reporting >= 10) %>%
+  group_by(year,disease) %>% 
+  summarize(rate = sum(count)/sum(population) * 10000) %>%
+  ggplot(aes(year,rate,color = disease)) + geom_line()
+
+```
+
+#### Q.N.4 Now do the same for the rates for the US. Hint compute the US rate by
+#### using summarize: total divided by population.Same way #3 need filter to 
+#### find all data
+
+```{r}
+us_contagious_diseases %>% filter(!is.na(population))%>%
+  group_by(year,disease) %>% 
+  summarize(rate = sum(count)/sum(population) * 10000) %>%
+  ggplot(aes(year,rate,color = disease)) + geom_line()
+```
+
+## Problem 3 (25)
+
+#### This problem uses the obesity data from the CDC. The original data is in 
+#### Excel format and we had uploaded a copy of this file onto Moodle. First 
+#### download the data onto your desktop/laptop work space and extract the data 
+#### as follows.
+#### if the readxl library is missing.
+```{r}
+library(readxl) 
+library(socviz)
+library(dplyr)
+fname <- "/Users/rabinpaudel/Desktop/HW2/obesity_data.xlsx"
+wrkbk <- read_excel(fname)
+obesity_2012 <- setNames(wrkbk[-1, c(2, 61)], c("fips", "pct"))
+obesity_2012$pct <- as.numeric(obesity_2012$pct) / 100
+gh2 <- setNames(data.frame( as.numeric(obesity_2012$fips),obesity_2012$pct ), 
+                c("fips", "pct"))
+
+```
+#### Try to Join Two data set.
+```{r}
+gh <- left_join(county_map, county_data, by = "id")
+Join_ALL_Data<- left_join(gh, gh2, by = "fips", na.rm = TRUE)
+```
+
+#### Try to find the variables that are "correlated" with obesity rates
+#### black, white variable and small value negative correlation with hh-income
+#### here is code
+```{r}
+CORR <- cor(Join_ALL_Data$pct, Join_ALL_Data$hh_income)
+CORR 
+```
+#### The correlation value is
+#### -0.4643518 (hh_income)
+####  0.4122962 (Black)
+
+```{r}
+library(ggplot2)
+library(maps)
+p <- ggplot(Join_ALL_Data, aes(x = long, y = lat, group = group, fill = pct))
+p1 <- p + geom_polygon(color = "gray90", size = 0.05) + coord_equal()
+p2 <- p1 + scale_fill_gradient2(low = "brown1",
+                        mid = scales::muted("red"),
+                        high = "blue", breaks = c(0.2,0.25,0.3,0.35,0.40,0.45))
+p3 <- p2 + labs(fill = "US Obesity Rate by County") + 
+  guides(fill = guide_legend(nrow = 1)) + 
+  theme(legend.position = "bottom")
+p3
+
+```
+
+#### THE END 

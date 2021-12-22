@@ -1,0 +1,1505 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{Assignment5}
+\author{Rabin Paudel}
+\date{11/1/2021}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Assignment5},
+  pdfauthor={Rabin Paudel},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\hypertarget{problem-1-20pts}{%
+\subsection{Problem 1 (20pts)}\label{problem-1-20pts}}
+
+\hypertarget{a-snippet-of-the-data-is-given-below}{%
+\paragraph{A snippet of the data is given
+below}\label{a-snippet-of-the-data-is-given-below}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# install.packages("alr4")}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(alr4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: car
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: carData
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'car'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     recode
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: effects
+\end{verbatim}
+
+\begin{verbatim}
+## lattice theme set by effectsTheme()
+## See ?effectsTheme for details.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(MWwords)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newData }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(MWwords, Hamilton, HamiltonRank) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{50}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{a-sing-only-the-50-most-frequent-words-in-hamiltons-work-fit-a-simple}{%
+\subsubsection{1.(a) sing only the 50 most frequent words in Hamilton's
+work, fit a
+simple}\label{a-sing-only-the-50-most-frequent-words-in-hamiltons-work-fit-a-simple}}
+
+\hypertarget{linear-regression-model-with-loghamilton-as-the-response-variable.}{%
+\subsubsection{linear regression model with log(Hamilton) as the
+response
+variable.}\label{linear-regression-model-with-loghamilton-as-the-response-variable.}}
+
+\hypertarget{we-fit-the-simple-linear-regression-model-with-loghamilton-as-the}{%
+\paragraph{We fit the simple linear regression model with log(Hamilton)
+as
+the}\label{we-fit-the-simple-linear-regression-model-with-loghamilton-as-the}}
+
+\hypertarget{response-variable.}{%
+\paragraph{response variable.}\label{response-variable.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log}\NormalTok{(newData}\SpecialCharTok{$}\NormalTok{Hamilton) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ newData}\SpecialCharTok{$}\NormalTok{HamiltonRank, }\AttributeTok{data =}\NormalTok{ MWwords)}
+\FunctionTok{summary}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(newData$Hamilton) ~ newData$HamiltonRank, data = MWwords)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.39124 -0.23684 -0.07905  0.18997  1.34197 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)           3.228707   0.101418   31.84   <2e-16 ***
+## newData$HamiltonRank -0.056852   0.003461  -16.42   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3532 on 48 degrees of freedom
+## Multiple R-squared:  0.8489, Adjusted R-squared:  0.8458 
+## F-statistic: 269.8 on 1 and 48 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fg }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(newData, }\FunctionTok{aes}\NormalTok{(HamiltonRank, }\FunctionTok{log}\NormalTok{(Hamilton))) }
+\NormalTok{fg }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ST442HW5_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\hypertarget{b-is-the-empirical-law-ux3b3-1-likely-to-be-correct-justify}{%
+\subsubsection{1.(b) is the empirical law γ ≈1 likely to be ``correct' '
+?
+Justify}\label{b-is-the-empirical-law-ux3b3-1-likely-to-be-correct-justify}}
+
+\hypertarget{answer.}{%
+\paragraph{answer.}\label{answer.}}
+
+\hypertarget{both-log-of-the-rank-and-log-of-frequency-both-closer-to-the-intercept}{%
+\paragraph{Both log of the rank and log of frequency both closer to the
+intercept}\label{both-log-of-the-rank-and-log-of-frequency-both-closer-to-the-intercept}}
+
+\hypertarget{so-that-the-the-empirical-law-ux3b3-1-likely-to-be-correct.}{%
+\paragraph{so that the the empirical law γ ≈1 likely to be
+``correct''.}\label{so-that-the-the-empirical-law-ux3b3-1-likely-to-be-correct.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modele }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log}\NormalTok{(newData}\SpecialCharTok{$}\NormalTok{Hamilton) }\SpecialCharTok{\textasciitilde{}} \FunctionTok{log}\NormalTok{(newData}\SpecialCharTok{$}\NormalTok{HamiltonRank), }\AttributeTok{data =}\NormalTok{ MWwords)}
+\NormalTok{modele}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(newData$Hamilton) ~ log(newData$HamiltonRank), 
+##     data = MWwords)
+## 
+## Coefficients:
+##               (Intercept)  log(newData$HamiltonRank)  
+##                     4.771                     -1.008
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(modele)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(newData$Hamilton) ~ log(newData$HamiltonRank), 
+##     data = MWwords)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.257413 -0.050288 -0.001563  0.043448  0.188268 
+## 
+## Coefficients:
+##                           Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)                4.77124    0.03948  120.84   <2e-16 ***
+## log(newData$HamiltonRank) -1.00764    0.01275  -79.04   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.07934 on 48 degrees of freedom
+## Multiple R-squared:  0.9924, Adjusted R-squared:  0.9922 
+## F-statistic:  6248 on 1 and 48 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\hypertarget{c-repeat-part-a-and-b-first-for-the-75-most-frequent-words-in}{%
+\subsubsection{1.(c) Repeat part (a) and (b), first for the 75 most
+frequent words
+in}\label{c-repeat-part-a-and-b-first-for-the-75-most-frequent-words-in}}
+
+\hypertarget{hamiltons-work-and-then-for-the-100-most-frequent-words-in-hamilton-works.}{%
+\subsubsection{Hamilton's work and then for the 100 most frequent words
+in Hamilton
+work's.}\label{hamiltons-work-and-then-for-the-100-most-frequent-words-in-hamilton-works.}}
+
+\hypertarget{is-the-relationship-posited-by-zipf-still-reasonable-in-these-cases}{%
+\subsubsection{Is the relationship posited by Zipf still reasonable in
+these cases
+?}\label{is-the-relationship-posited-by-zipf-still-reasonable-in-these-cases}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new1Data }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(MWwords, Hamilton, HamiltonRank) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{75}\NormalTok{)}
+\NormalTok{model1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log}\NormalTok{(new1Data}\SpecialCharTok{$}\NormalTok{Hamilton) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ new1Data}\SpecialCharTok{$}\NormalTok{HamiltonRank, }\AttributeTok{data =}\NormalTok{ MWwords)}
+\FunctionTok{summary}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(new1Data$Hamilton) ~ new1Data$HamiltonRank, 
+##     data = MWwords)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.36312 -0.24476 -0.05567  0.15039  1.57086 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)            2.988102   0.077871   38.37   <2e-16 ***
+## new1Data$HamiltonRank -0.045143   0.001781  -25.35   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3338 on 73 degrees of freedom
+## Multiple R-squared:  0.898,  Adjusted R-squared:  0.8966 
+## F-statistic: 642.8 on 1 and 73 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fg1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(new1Data, }\FunctionTok{aes}\NormalTok{(HamiltonRank, }\FunctionTok{log}\NormalTok{(Hamilton))) }
+\NormalTok{fg1 }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ST442HW5_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new2Data }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(MWwords, Hamilton, HamiltonRank) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{model2 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log}\NormalTok{(new2Data}\SpecialCharTok{$}\NormalTok{Hamilton) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ new2Data}\SpecialCharTok{$}\NormalTok{HamiltonRank, }\AttributeTok{data =}\NormalTok{ MWwords)}
+\FunctionTok{summary}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(new1Data$Hamilton) ~ new1Data$HamiltonRank, 
+##     data = MWwords)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.36312 -0.24476 -0.05567  0.15039  1.57086 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)            2.988102   0.077871   38.37   <2e-16 ***
+## new1Data$HamiltonRank -0.045143   0.001781  -25.35   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3338 on 73 degrees of freedom
+## Multiple R-squared:  0.898,  Adjusted R-squared:  0.8966 
+## F-statistic: 642.8 on 1 and 73 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fg1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(new2Data, }\FunctionTok{aes}\NormalTok{(HamiltonRank, }\FunctionTok{log}\NormalTok{(Hamilton))) }
+\NormalTok{fg1 }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ST442HW5_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\hypertarget{yes-the-relationship-posited-by-zipf-still-responable-in-these-case}{%
+\paragraph{Yes, the relationship posited by Zipf still responable in
+these
+case}\label{yes-the-relationship-posited-by-zipf-still-responable-in-these-case}}
+
+\hypertarget{residual-standard-error-small-adj-r-sqare-also-big-median-value-is-small}{%
+\paragraph{Residual standard error small, adj R sqare also big, median
+value is
+small,}\label{residual-standard-error-small-adj-r-sqare-also-big-median-value-is-small}}
+
+\hypertarget{bothcase-p-value-is-small-that-way-highly-significant.}{%
+\paragraph{bothcase, p-value is small that way highly
+significant.}\label{bothcase-p-value-is-small-that-way-highly-significant.}}
+
+\hypertarget{d-now-investigate-zipf-law-for-the-simpson-frequency-dictionary-dataset.}{%
+\subsubsection{1.(d) Now investigate Zipf law for the Simpson Frequency
+Dictionary
+dataset.}\label{d-now-investigate-zipf-law-for-the-simpson-frequency-dictionary-dataset.}}
+
+\hypertarget{you-will-need-to-do-some-preprocessing-and-possibly-cleaning-of-the-raw-data}{%
+\subsubsection{You will need to do some preprocessing and possibly
+cleaning of the raw
+data}\label{you-will-need-to-do-some-preprocessing-and-possibly-cleaning-of-the-raw-data}}
+
+\hypertarget{in-particular-the-numbers-in-the-frequency-column-1-of-this-dataset}{%
+\subsubsection{(in particular the numbers in the Frequency column 1 of
+this
+dataset;}\label{in-particular-the-numbers-in-the-frequency-column-1-of-this-dataset}}
+
+\hypertarget{your-stringr-skills-might-come-in-handy-here}{%
+\subsubsection{your stringr skills might come in handy
+here}\label{your-stringr-skills-might-come-in-handy-here}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(stringr)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(tidyr)}
+\NormalTok{READ }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://pastebin.com/raw/anKcMdvk"}\NormalTok{, }\AttributeTok{header =} \ConstantTok{FALSE}\NormalTok{, }
+                \AttributeTok{skip =} \DecValTok{5}\NormalTok{, }\AttributeTok{stringsAsFactors =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{READ }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{30}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                                V1
+## 1  1      the                            (107946)
+## 2   2      you                            (98068)
+## 3   3      i                              (91502)
+## 4   4      a                              (79241)
+## 5   5      to                             (70362)
+## 6   6      and                            (47916)
+## 7   7      of                             (42175)
+## 8   8      it                             (36497)
+## 9   9      in                             (32503)
+## 10  10     my                             (32254)
+## 11  11     that                           (32083)
+## 12  12     is                             (31533)
+## 13  13     this                           (29902)
+## 14  14     me                             (28208)
+## 15  15     your                           (26781)
+## 16  16     for                            (25634)
+## 17  17     oh                             (25053)
+## 18  18     i'm                            (23389)
+## 19  19     on                             (22846)
+## 20  20     we                             (21355)
+## 21  21     what                           (20182)
+## 22  22     no                             (19990)
+## 23  23     all                            (19922)
+## 24  24     have                           (19543)
+## 25  25     be                             (18489)
+## 26  26     but                            (18244)
+## 27  27     don't                          (18022)
+## 28  28     it's                           (17183)
+## 29  29     do                             (16713)
+## 30  30     are                            (16199)
+\end{verbatim}
+
+\hypertarget{we-need-to-clean-the-data-set-so-i-am-going-to-clean-the-data-trying-to}{%
+\paragraph{We need to clean the data set, so I am going to clean the
+data Trying
+to}\label{we-need-to-clean-the-data-set-so-i-am-going-to-clean-the-data-trying-to}}
+
+\hypertarget{first-500-values.}{%
+\paragraph{first 500 values.}\label{first-500-values.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Rank }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{str\_sub}\NormalTok{(READ}\SpecialCharTok{$}\NormalTok{V1, }\DecValTok{1}\NormalTok{, }\DecValTok{7}\NormalTok{), }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{data.frame}\NormalTok{(Rank) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Rank
+## 1     1
+## 2     2
+## 3     3
+## 4     4
+## 5     5
+## 6     6
+## 7     7
+## 8     8
+## 9     9
+## 10   10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{val }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(Rank)}
+
+\NormalTok{Word }\OtherTok{\textless{}{-}} \FunctionTok{str\_sub}\NormalTok{(READ}\SpecialCharTok{$}\NormalTok{V1, }\DecValTok{8}\NormalTok{, }\DecValTok{25}\NormalTok{)}
+\NormalTok{Word }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "the               " "you               " "i                 "
+##  [4] "a                 " "to                " "and               "
+##  [7] "of                " "it                " "in                "
+## [10] "my                "
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{val1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(Word)}
+
+\NormalTok{Frequency }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{str\_sub}\NormalTok{(READ}\SpecialCharTok{$}\NormalTok{V1, }\DecValTok{40}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{), }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{Frequency }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 107946  98068  91502  79241  70362  47916  42175  36497  32503  32254
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{val2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(Frequency) }
+
+\NormalTok{ADDDATA }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{c}\NormalTok{(val, val1, val2))}
+\NormalTok{ADDDATA }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Rank               Word Frequency
+## 1     1 the                   107946
+## 2     2 you                    98068
+## 3     3 i                      91502
+## 4     4 a                      79241
+## 5     5 to                     70362
+## 6     6 and                    47916
+## 7     7 of                     42175
+## 8     8 it                     36497
+## 9     9 in                     32503
+## 10   10 my                     32254
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{jk }\OtherTok{\textless{}{-}}\NormalTok{ ADDDATA }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{500}\NormalTok{)}
+
+\NormalTok{fg3 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(jk, }\FunctionTok{aes}\NormalTok{(}\FunctionTok{log}\NormalTok{(Rank), }\FunctionTok{log}\NormalTok{(Frequency))) }
+
+\NormalTok{fg3 }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ST442HW5_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modele1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log}\NormalTok{(Frequency) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Rank, }\AttributeTok{data =}\NormalTok{ jk)}
+\FunctionTok{summary}\NormalTok{(modele1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = log(Frequency) ~ Rank, data = jk)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.3667 -0.2755 -0.1187  0.2059  2.2144 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  9.3813891  0.0339461  276.36   <2e-16 ***
+## Rank        -0.0063599  0.0001174  -54.16   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.379 on 498 degrees of freedom
+## Multiple R-squared:  0.8549, Adjusted R-squared:  0.8546 
+## F-statistic:  2934 on 1 and 498 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\hypertarget{adj-r-square-is-good-enough-p--value-small-enough-data-is-significant-me-}{%
+\paragraph{Adj R square is good enough, p- value small enough data is
+significant,
+Me-}\label{adj-r-square-is-good-enough-p--value-small-enough-data-is-significant-me-}}
+
+\hypertarget{dian-value-close-to-jeso-residual-standard-error-0.379-small-so-that}{%
+\paragraph{dian value close to jeso, residual standard error = 0.379
+(small) so
+that}\label{dian-value-close-to-jeso-residual-standard-error-0.379-small-so-that}}
+
+\hypertarget{the-data-look-like-normal.-so-the-data-follows-zipf-law.}{%
+\paragraph{the data look like normal. So, the data follows Zipf
+law.}\label{the-data-look-like-normal.-so-the-data-follows-zipf-law.}}
+
+\hypertarget{problem-2-20-pts}{%
+\subsection{Problem 2 (20 pts)}\label{problem-2-20-pts}}
+
+\hypertarget{this-problem-uses-the-following-kelley-blue-book-dataset-on-the-selling}{%
+\subsubsection{This problem uses the following Kelley Blue Book dataset
+on the
+selling}\label{this-problem-uses-the-following-kelley-blue-book-dataset-on-the-selling}}
+
+\hypertarget{price-of-used-gm-cars.-the-data-is-available-online-here.-you-can-read-in}{%
+\subsubsection{price of used GM cars. The data is available online here.
+You can read
+in}\label{price-of-used-gm-cars.-the-data-is-available-online-here.-you-can-read-in}}
+
+\hypertarget{the-data-using-the-following-code-chunk.}{%
+\subsubsection{the data using the following code
+chunk.}\label{the-data-using-the-following-code-chunk.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kbb }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://bit.ly/3GknAkw"}\NormalTok{, }\AttributeTok{header =}\NormalTok{ T, }\AttributeTok{sep =} \StringTok{","}\NormalTok{)}
+\NormalTok{kbb }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Price Mileage  Make   Model     Trim  Type Cylinder Liter Doors Cruise
+## 1  17314.10    8221 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 2  17542.04    9135 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 3  16218.85   13196 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 4  16336.91   16342 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 5  16339.17   19832 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 6  15709.05   22236 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 7  15230.00   22576 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 8  15048.04   22964 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 9  14862.09   24021 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+## 10 15295.02   27325 Buick Century Sedan 4D Sedan        6   3.1     4    yes
+##    Sound Leather
+## 1    yes     yes
+## 2    yes      no
+## 3    yes      no
+## 4     no      no
+## 5     no     yes
+## 6    yes      no
+## 7    yes      no
+## 8    yes      no
+## 9     no     yes
+## 10   yes     yes
+\end{verbatim}
+
+\hypertarget{using-this-data-what-is-the-best-linear-model-you-can-find-for}{%
+\subsubsection{Using this data, what is the ``best'' (linear) model you
+can find
+for}\label{using-this-data-what-is-the-best-linear-model-you-can-find-for}}
+
+\hypertarget{predicting-the-sell-price-note-that-this-is-an-open-ended-problem.}{%
+\subsubsection{predicting the sell price ? Note that this is an
+open-ended
+problem.}\label{predicting-the-sell-price-note-that-this-is-an-open-ended-problem.}}
+
+\hypertarget{we-now-simple-model-predicting-sell-price-to-get-moodle-only-with-mileage}{%
+\paragraph{We now simple model predicting sell price to get moodle only
+with
+Mileage}\label{we-now-simple-model-predicting-sell-price-to-get-moodle-only-with-mileage}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod0 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Price}\SpecialCharTok{\textasciitilde{}}\NormalTok{ Mileage, }\AttributeTok{data =}\NormalTok{ kbb)}
+\FunctionTok{summary}\NormalTok{(mod0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Price ~ Mileage, data = kbb)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -13905  -7254  -3520   5188  46091 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  2.476e+04  9.044e+02  27.383  < 2e-16 ***
+## Mileage     -1.725e-01  4.215e-02  -4.093 4.68e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9789 on 802 degrees of freedom
+## Multiple R-squared:  0.02046,    Adjusted R-squared:  0.01924 
+## F-statistic: 16.75 on 1 and 802 DF,  p-value: 4.685e-05
+\end{verbatim}
+
+\hypertarget{to-find-mean-absolute-error-of-mod0}{%
+\paragraph{To find mean absolute error of
+mod0}\label{to-find-mean-absolute-error-of-mod0}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mae\_mod0 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{abs}\NormalTok{(kbb}\SpecialCharTok{$}\NormalTok{Price }\SpecialCharTok{{-}}\NormalTok{ mod0}\SpecialCharTok{$}\NormalTok{fitted.values)) }
+\NormalTok{mae\_mod0}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7596.28
+\end{verbatim}
+
+\hypertarget{this-value-small-adj-r2-not-good-enough.}{%
+\paragraph{This value small Adj R\^{}2 not good
+enough.}\label{this-value-small-adj-r2-not-good-enough.}}
+
+\hypertarget{residual-standard-error-9789-big}{%
+\paragraph{Residual Standard error = 9789
+(Big)}\label{residual-standard-error-9789-big}}
+
+\hypertarget{p-value-small-highly-significant}{%
+\paragraph{P-value small highly
+significant}\label{p-value-small-highly-significant}}
+
+\hypertarget{higher-median-value-not-good-enough}{%
+\paragraph{Higher median value (not good
+enough)}\label{higher-median-value-not-good-enough}}
+
+\hypertarget{f-and-t-statistic-good-enough}{%
+\paragraph{F and t statistic good
+enough}\label{f-and-t-statistic-good-enough}}
+
+\hypertarget{negative-correlation-price-and-milege-sloop-of-milage-is-negative}{%
+\paragraph{Negative correlation Price and Milege (sloop of milage is
+negative)}\label{negative-correlation-price-and-milege-sloop-of-milage-is-negative}}
+
+\hypertarget{mean-absolute-error-7596.28-high}{%
+\paragraph{\#\# Mean Absolute Error = 7596.28
+(high)}\label{mean-absolute-error-7596.28-high}}
+
+\hypertarget{next-model-mod1-add-variable-cylinder-liter-doors-some-dummy-variable.}{%
+\paragraph{Next model mod1 add variable Cylinder + Liter + Doors + some
+dummy
+Variable.}\label{next-model-mod1-add-variable-cylinder-liter-doors-some-dummy-variable.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod1 }\OtherTok{\textless{}{-}} \FunctionTok{update}\NormalTok{(mod0, .}\SpecialCharTok{\textasciitilde{}}\NormalTok{. }\SpecialCharTok{+}\NormalTok{ Cylinder }\SpecialCharTok{+}\NormalTok{ Liter }\SpecialCharTok{+}\NormalTok{ Doors }\SpecialCharTok{+}\NormalTok{ Cruise }\SpecialCharTok{+}\NormalTok{ Sound }\SpecialCharTok{+}\NormalTok{ Leather)}
+\FunctionTok{summary}\NormalTok{(mod1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Price ~ Mileage + Cylinder + Liter + Doors + Cruise + 
+##     Sound + Leather, data = kbb)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -13278  -5615  -1556   3996  32819 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  6.759e+03  1.877e+03   3.601 0.000337 ***
+## Mileage     -1.698e-01  3.187e-02  -5.326 1.31e-07 ***
+## Cylinder     3.792e+03  6.832e+02   5.551 3.87e-08 ***
+## Liter       -7.872e+02  8.671e+02  -0.908 0.364196    
+## Doors       -1.543e+03  3.205e+02  -4.814 1.77e-06 ***
+## Cruiseyes    6.289e+03  6.580e+02   9.558  < 2e-16 ***
+## Soundyes    -1.994e+03  5.718e+02  -3.487 0.000515 ***
+## Leatheryes   3.349e+03  5.977e+02   5.604 2.89e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 7388 on 796 degrees of freedom
+## Multiple R-squared:  0.4463, Adjusted R-squared:  0.4414 
+## F-statistic: 91.64 on 7 and 796 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\hypertarget{to-find-mean-absolute-error-of-mod0-1}{%
+\paragraph{To find mean absolute error of
+mod0}\label{to-find-mean-absolute-error-of-mod0-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mae\_mod1 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{abs}\NormalTok{(kbb}\SpecialCharTok{$}\NormalTok{Price }\SpecialCharTok{{-}}\NormalTok{ mod1}\SpecialCharTok{$}\NormalTok{fitted.values))}
+\NormalTok{mae\_mod1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5799.617
+\end{verbatim}
+
+\hypertarget{the-variable-liter-is-not-significant-higher-p-value-so-i-am-going-to}{%
+\paragraph{The variable Liter is not significant higher p-value so i am
+going
+to}\label{the-variable-liter-is-not-significant-higher-p-value-so-i-am-going-to}}
+
+\hypertarget{remove-the-variable.}{%
+\paragraph{Remove the variable.}\label{remove-the-variable.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod1 }\OtherTok{\textless{}{-}} \FunctionTok{update}\NormalTok{(mod0, .}\SpecialCharTok{\textasciitilde{}}\NormalTok{. }\SpecialCharTok{+}\NormalTok{ Cylinder }\SpecialCharTok{+}\NormalTok{ Doors }\SpecialCharTok{+}\NormalTok{ Cruise }\SpecialCharTok{+}\NormalTok{ Sound }\SpecialCharTok{+}\NormalTok{ Leather)}
+\FunctionTok{summary}\NormalTok{(mod1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Price ~ Mileage + Cylinder + Doors + Cruise + Sound + 
+##     Leather, data = kbb)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -13104  -5566  -1544   3877  33349 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  7.323e+03  1.771e+03   4.135 3.92e-05 ***
+## Mileage     -1.705e-01  3.186e-02  -5.352 1.14e-07 ***
+## Cylinder     3.200e+03  2.030e+02  15.765  < 2e-16 ***
+## Doors       -1.463e+03  3.083e+02  -4.747 2.45e-06 ***
+## Cruiseyes    6.206e+03  6.515e+02   9.525  < 2e-16 ***
+## Soundyes    -2.024e+03  5.707e+02  -3.547 0.000412 ***
+## Leatheryes   3.327e+03  5.971e+02   5.572 3.45e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 7387 on 797 degrees of freedom
+## Multiple R-squared:  0.4457, Adjusted R-squared:  0.4415 
+## F-statistic: 106.8 on 6 and 797 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\hypertarget{we-dont-see-any-big-change-after-removing-the-variable-liter.}{%
+\paragraph{We don't see any big change after removing the variable
+Liter.}\label{we-dont-see-any-big-change-after-removing-the-variable-liter.}}
+
+\hypertarget{to-create-another-model}{%
+\paragraph{To create another model}\label{to-create-another-model}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod2 }\OtherTok{\textless{}{-}} \FunctionTok{update}\NormalTok{(mod1, .}\SpecialCharTok{\textasciitilde{}}\NormalTok{. }\SpecialCharTok{+}\NormalTok{ Make }\SpecialCharTok{+}\NormalTok{ Model }\SpecialCharTok{+}\NormalTok{ Trim }\SpecialCharTok{+}\NormalTok{ Type }\SpecialCharTok{+}\NormalTok{ Cruise }\SpecialCharTok{+}\NormalTok{ Sound }\SpecialCharTok{+}\NormalTok{ Leather)}
+\FunctionTok{summary}\NormalTok{(mod2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Price ~ Mileage + Cylinder + Doors + Cruise + Sound + 
+##     Leather + Make + Model + Trim + Type, data = kbb)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6523.2  -471.4    18.1   468.9  4425.1 
+## 
+## Coefficients: (19 not defined because of singularities)
+##                           Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)              3.019e+04  1.616e+03  18.682  < 2e-16 ***
+## Mileage                 -1.854e-01  4.051e-03 -45.754  < 2e-16 ***
+## Cylinder                 1.173e+03  2.028e+02   5.786 1.07e-08 ***
+## Doors                   -2.706e+03  2.985e+02  -9.066  < 2e-16 ***
+## Cruiseyes                6.940e+01  1.015e+02   0.684 0.494443    
+## Soundyes                 2.113e+02  7.976e+01   2.649 0.008257 ** 
+## Leatheryes               2.954e+02  9.287e+01   3.180 0.001533 ** 
+## MakeCadillac             3.169e+04  7.497e+02  42.277  < 2e-16 ***
+## MakeChevrolet           -6.518e+03  4.841e+02 -13.464  < 2e-16 ***
+## MakePontiac             -5.606e+03  7.026e+02  -7.979 5.71e-15 ***
+## MakeSAAB                 5.189e+03  6.980e+02   7.434 2.96e-13 ***
+## MakeSaturn              -7.037e+03  5.689e+02 -12.371  < 2e-16 ***
+## Model9_3 HO              8.070e+02  7.206e+02   1.120 0.263139    
+## Model9_5                 2.245e+03  8.292e+02   2.707 0.006950 ** 
+## Model9_5 HO              2.799e+03  8.252e+02   3.392 0.000731 ***
+## Model9-2X AWD           -3.002e+03  9.849e+02  -3.048 0.002388 ** 
+## ModelAVEO               -4.073e+03  5.968e+02  -6.825 1.85e-11 ***
+## ModelBonneville          3.059e+03  7.036e+02   4.348 1.57e-05 ***
+## ModelCavalier           -2.074e+03  5.559e+02  -3.731 0.000205 ***
+## ModelCentury            -7.216e+03  4.041e+02 -17.859  < 2e-16 ***
+## ModelClassic            -5.456e+02  6.399e+02  -0.853 0.394138    
+## ModelCobalt             -1.120e+03  5.562e+02  -2.014 0.044362 *  
+## ModelCorvette            1.730e+04  6.416e+02  26.958  < 2e-16 ***
+## ModelCST-V              -1.222e+04  6.303e+02 -19.388  < 2e-16 ***
+## ModelCTS                -2.503e+04  7.507e+02 -33.343  < 2e-16 ***
+## ModelDeville            -2.423e+04  6.300e+02 -38.460  < 2e-16 ***
+## ModelG6                  1.916e+03  6.890e+02   2.780 0.005568 ** 
+## ModelGrand Am           -4.957e+02  5.767e+02  -0.860 0.390249    
+## ModelGrand Prix         -6.114e+02  6.913e+02  -0.884 0.376721    
+## ModelGTO                 9.291e+03  1.005e+03   9.248  < 2e-16 ***
+## ModelImpala              1.096e+03  4.285e+02   2.557 0.010764 *  
+## ModelIon                -4.865e+02  6.648e+02  -0.732 0.464535    
+## ModelL Series                   NA         NA      NA       NA    
+## ModelLacrosse           -3.489e+02  5.684e+02  -0.614 0.539506    
+## ModelLesabre            -1.691e+03  5.692e+02  -2.970 0.003076 ** 
+## ModelMalibu             -6.083e+02  4.197e+02  -1.449 0.147661    
+## ModelMonte Carlo                NA         NA      NA       NA    
+## ModelPark Avenue                NA         NA      NA       NA    
+## ModelSTS-V6             -1.764e+04  7.505e+02 -23.503  < 2e-16 ***
+## ModelSTS-V8             -1.443e+04  6.301e+02 -22.904  < 2e-16 ***
+## ModelSunfire            -2.573e+03  5.957e+02  -4.319 1.78e-05 ***
+## ModelVibe                       NA         NA      NA       NA    
+## ModelXLR-V8                     NA         NA      NA       NA    
+## TrimAero Sedan 4D       -1.056e+03  7.217e+02  -1.463 0.143797    
+## TrimAero Wagon 4D        4.926e+02  8.246e+02   0.597 0.550467    
+## TrimArc Conv 2D          3.536e+03  4.041e+02   8.751  < 2e-16 ***
+## TrimArc Sedan 4D         1.829e+03  7.239e+02   2.527 0.011706 *  
+## TrimArc Wagon 4D         2.339e+03  8.265e+02   2.830 0.004787 ** 
+## TrimAWD Sportwagon 4D    1.411e+03  4.060e+02   3.476 0.000540 ***
+## TrimConv 2D             -3.776e+02  6.395e+02  -0.590 0.555044    
+## TrimCoupe 2D            -5.342e+03  4.969e+02 -10.751  < 2e-16 ***
+## TrimCustom Sedan 4D     -2.863e+03  4.043e+02  -7.082 3.34e-12 ***
+## TrimCX Sedan 4D         -2.733e+03  4.044e+02  -6.757 2.88e-11 ***
+## TrimCXL Sedan 4D        -1.388e+03  4.047e+02  -3.428 0.000641 ***
+## TrimCXS Sedan 4D                NA         NA      NA       NA    
+## TrimDHS Sedan 4D         4.598e+03  5.680e+02   8.096 2.38e-15 ***
+## TrimDTS Sedan 4D         5.246e+03  5.681e+02   9.235  < 2e-16 ***
+## TrimGT Coupe 2D         -7.386e+03  8.271e+02  -8.930  < 2e-16 ***
+## TrimGT Sedan 4D          6.411e+02  4.937e+02   1.299 0.194482    
+## TrimGT Sportwagon        1.066e+03  4.052e+02   2.630 0.008714 ** 
+## TrimGTP Sedan 4D         3.506e+03  5.535e+02   6.334 4.17e-10 ***
+## TrimGXP Sedan 4D                NA         NA      NA       NA    
+## TrimHardtop Conv 2D             NA         NA      NA       NA    
+## TrimL300 Sedan 4D               NA         NA      NA       NA    
+## TrimLimited Sedan 4D            NA         NA      NA       NA    
+## TrimLinear Conv 2D       1.704e+03  7.218e+02   2.361 0.018464 *  
+## TrimLinear Sedan 4D             NA         NA      NA       NA    
+## TrimLinear Wagon 4D      1.592e+03  8.273e+02   1.924 0.054753 .  
+## TrimLS Coupe 2D         -4.762e+03  4.067e+02 -11.709  < 2e-16 ***
+## TrimLS Hatchback 4D      1.290e+03  4.056e+02   3.180 0.001533 ** 
+## TrimLS MAXX Hback 4D     1.068e+03  4.876e+02   2.191 0.028776 *  
+## TrimLS Sedan 4D          1.001e+03  3.690e+02   2.712 0.006836 ** 
+## TrimLS Sport Coupe 2D   -4.957e+03  5.465e+02  -9.071  < 2e-16 ***
+## TrimLS Sport Sedan 4D    1.082e+03  4.964e+02   2.180 0.029561 *  
+## TrimLT Coupe 2D         -1.400e+03  4.049e+02  -3.457 0.000579 ***
+## TrimLT Hatchback 4D      1.538e+03  4.129e+02   3.724 0.000211 ***
+## TrimLT MAXX Hback 4D     1.480e+03  4.871e+02   3.038 0.002468 ** 
+## TrimLT Sedan 4D          1.127e+03  3.682e+02   3.061 0.002285 ** 
+## TrimMAXX Hback 4D        7.280e+02  4.892e+02   1.488 0.137147    
+## TrimQuad Coupe 2D       -3.867e+03  5.514e+02  -7.012 5.35e-12 ***
+## TrimSE Sedan 4D         -1.390e+03  4.051e+02  -3.430 0.000637 ***
+## TrimSedan 4D            -9.262e+01  4.008e+02  -0.231 0.817296    
+## TrimSLE Sedan 4D                NA         NA      NA       NA    
+## TrimSpecial Ed Ultra 4D  1.653e+03  5.687e+02   2.907 0.003764 ** 
+## TrimSportwagon 4D               NA         NA      NA       NA    
+## TrimSS Coupe 2D                 NA         NA      NA       NA    
+## TrimSS Sedan 4D          6.183e+03  5.107e+02  12.107  < 2e-16 ***
+## TrimSVM Hatchback 4D    -7.948e+02  4.072e+02  -1.952 0.051334 .  
+## TrimSVM Sedan 4D                NA         NA      NA       NA    
+## TypeCoupe                       NA         NA      NA       NA    
+## TypeHatchback                   NA         NA      NA       NA    
+## TypeSedan                       NA         NA      NA       NA    
+## TypeWagon                       NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 903.3 on 730 degrees of freedom
+## Multiple R-squared:  0.9924, Adjusted R-squared:  0.9916 
+## F-statistic:  1307 on 73 and 730 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\hypertarget{to-find-the-absolute-error-of-mod2}{%
+\paragraph{To find the absolute error of
+mod2}\label{to-find-the-absolute-error-of-mod2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mae\_mod2 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{abs}\NormalTok{(kbb}\SpecialCharTok{$}\NormalTok{Price }\SpecialCharTok{{-}}\NormalTok{ mod2}\SpecialCharTok{$}\NormalTok{fitted.values))}
+\NormalTok{mae\_mod2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 613.325
+\end{verbatim}
+
+\hypertarget{type-variabile-is-remove-cause-the-values-of-type-all-na.}{%
+\paragraph{Type variabile is remove cause the values of type all
+NA.}\label{type-variabile-is-remove-cause-the-values-of-type-all-na.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod2 }\OtherTok{\textless{}{-}} \FunctionTok{update}\NormalTok{(mod1, .}\SpecialCharTok{\textasciitilde{}}\NormalTok{. }\SpecialCharTok{+}\NormalTok{ Make }\SpecialCharTok{+}\NormalTok{ Model }\SpecialCharTok{+}\NormalTok{ Trim }\SpecialCharTok{{-}}\NormalTok{Type }\SpecialCharTok{+}\NormalTok{ Cruise }\SpecialCharTok{+}\NormalTok{ Sound }\SpecialCharTok{+}\NormalTok{ Leather)}
+\FunctionTok{summary}\NormalTok{(mod2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Price ~ Mileage + Cylinder + Doors + Cruise + Sound + 
+##     Leather + Make + Model + Trim, data = kbb)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6523.2  -471.4    18.1   468.9  4425.1 
+## 
+## Coefficients: (15 not defined because of singularities)
+##                           Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)              3.019e+04  1.616e+03  18.682  < 2e-16 ***
+## Mileage                 -1.854e-01  4.051e-03 -45.754  < 2e-16 ***
+## Cylinder                 1.173e+03  2.028e+02   5.786 1.07e-08 ***
+## Doors                   -2.706e+03  2.985e+02  -9.066  < 2e-16 ***
+## Cruiseyes                6.940e+01  1.015e+02   0.684 0.494443    
+## Soundyes                 2.113e+02  7.976e+01   2.649 0.008257 ** 
+## Leatheryes               2.954e+02  9.287e+01   3.180 0.001533 ** 
+## MakeCadillac             3.169e+04  7.497e+02  42.277  < 2e-16 ***
+## MakeChevrolet           -6.518e+03  4.841e+02 -13.464  < 2e-16 ***
+## MakePontiac             -5.606e+03  7.026e+02  -7.979 5.71e-15 ***
+## MakeSAAB                 5.189e+03  6.980e+02   7.434 2.96e-13 ***
+## MakeSaturn              -7.037e+03  5.689e+02 -12.371  < 2e-16 ***
+## Model9_3 HO              8.070e+02  7.206e+02   1.120 0.263139    
+## Model9_5                 2.245e+03  8.292e+02   2.707 0.006950 ** 
+## Model9_5 HO              2.799e+03  8.252e+02   3.392 0.000731 ***
+## Model9-2X AWD           -3.002e+03  9.849e+02  -3.048 0.002388 ** 
+## ModelAVEO               -4.073e+03  5.968e+02  -6.825 1.85e-11 ***
+## ModelBonneville          3.059e+03  7.036e+02   4.348 1.57e-05 ***
+## ModelCavalier           -2.074e+03  5.559e+02  -3.731 0.000205 ***
+## ModelCentury            -7.216e+03  4.041e+02 -17.859  < 2e-16 ***
+## ModelClassic            -5.456e+02  6.399e+02  -0.853 0.394138    
+## ModelCobalt             -1.120e+03  5.562e+02  -2.014 0.044362 *  
+## ModelCorvette            1.730e+04  6.416e+02  26.958  < 2e-16 ***
+## ModelCST-V              -1.222e+04  6.303e+02 -19.388  < 2e-16 ***
+## ModelCTS                -2.503e+04  7.507e+02 -33.343  < 2e-16 ***
+## ModelDeville            -2.423e+04  6.300e+02 -38.460  < 2e-16 ***
+## ModelG6                  1.916e+03  6.890e+02   2.780 0.005568 ** 
+## ModelGrand Am           -4.957e+02  5.767e+02  -0.860 0.390249    
+## ModelGrand Prix         -6.114e+02  6.913e+02  -0.884 0.376721    
+## ModelGTO                 9.291e+03  1.005e+03   9.248  < 2e-16 ***
+## ModelImpala              1.096e+03  4.285e+02   2.557 0.010764 *  
+## ModelIon                -4.865e+02  6.648e+02  -0.732 0.464535    
+## ModelL Series                   NA         NA      NA       NA    
+## ModelLacrosse           -3.489e+02  5.684e+02  -0.614 0.539506    
+## ModelLesabre            -1.691e+03  5.692e+02  -2.970 0.003076 ** 
+## ModelMalibu             -6.083e+02  4.197e+02  -1.449 0.147661    
+## ModelMonte Carlo                NA         NA      NA       NA    
+## ModelPark Avenue                NA         NA      NA       NA    
+## ModelSTS-V6             -1.764e+04  7.505e+02 -23.503  < 2e-16 ***
+## ModelSTS-V8             -1.443e+04  6.301e+02 -22.904  < 2e-16 ***
+## ModelSunfire            -2.573e+03  5.957e+02  -4.319 1.78e-05 ***
+## ModelVibe                       NA         NA      NA       NA    
+## ModelXLR-V8                     NA         NA      NA       NA    
+## TrimAero Sedan 4D       -1.056e+03  7.217e+02  -1.463 0.143797    
+## TrimAero Wagon 4D        4.926e+02  8.246e+02   0.597 0.550467    
+## TrimArc Conv 2D          3.536e+03  4.041e+02   8.751  < 2e-16 ***
+## TrimArc Sedan 4D         1.829e+03  7.239e+02   2.527 0.011706 *  
+## TrimArc Wagon 4D         2.339e+03  8.265e+02   2.830 0.004787 ** 
+## TrimAWD Sportwagon 4D    1.411e+03  4.060e+02   3.476 0.000540 ***
+## TrimConv 2D             -3.776e+02  6.395e+02  -0.590 0.555044    
+## TrimCoupe 2D            -5.342e+03  4.969e+02 -10.751  < 2e-16 ***
+## TrimCustom Sedan 4D     -2.863e+03  4.043e+02  -7.082 3.34e-12 ***
+## TrimCX Sedan 4D         -2.733e+03  4.044e+02  -6.757 2.88e-11 ***
+## TrimCXL Sedan 4D        -1.388e+03  4.047e+02  -3.428 0.000641 ***
+## TrimCXS Sedan 4D                NA         NA      NA       NA    
+## TrimDHS Sedan 4D         4.598e+03  5.680e+02   8.096 2.38e-15 ***
+## TrimDTS Sedan 4D         5.246e+03  5.681e+02   9.235  < 2e-16 ***
+## TrimGT Coupe 2D         -7.386e+03  8.271e+02  -8.930  < 2e-16 ***
+## TrimGT Sedan 4D          6.411e+02  4.937e+02   1.299 0.194482    
+## TrimGT Sportwagon        1.066e+03  4.052e+02   2.630 0.008714 ** 
+## TrimGTP Sedan 4D         3.506e+03  5.535e+02   6.334 4.17e-10 ***
+## TrimGXP Sedan 4D                NA         NA      NA       NA    
+## TrimHardtop Conv 2D             NA         NA      NA       NA    
+## TrimL300 Sedan 4D               NA         NA      NA       NA    
+## TrimLimited Sedan 4D            NA         NA      NA       NA    
+## TrimLinear Conv 2D       1.704e+03  7.218e+02   2.361 0.018464 *  
+## TrimLinear Sedan 4D             NA         NA      NA       NA    
+## TrimLinear Wagon 4D      1.592e+03  8.273e+02   1.924 0.054753 .  
+## TrimLS Coupe 2D         -4.762e+03  4.067e+02 -11.709  < 2e-16 ***
+## TrimLS Hatchback 4D      1.290e+03  4.056e+02   3.180 0.001533 ** 
+## TrimLS MAXX Hback 4D     1.068e+03  4.876e+02   2.191 0.028776 *  
+## TrimLS Sedan 4D          1.001e+03  3.690e+02   2.712 0.006836 ** 
+## TrimLS Sport Coupe 2D   -4.957e+03  5.465e+02  -9.071  < 2e-16 ***
+## TrimLS Sport Sedan 4D    1.082e+03  4.964e+02   2.180 0.029561 *  
+## TrimLT Coupe 2D         -1.400e+03  4.049e+02  -3.457 0.000579 ***
+## TrimLT Hatchback 4D      1.538e+03  4.129e+02   3.724 0.000211 ***
+## TrimLT MAXX Hback 4D     1.480e+03  4.871e+02   3.038 0.002468 ** 
+## TrimLT Sedan 4D          1.127e+03  3.682e+02   3.061 0.002285 ** 
+## TrimMAXX Hback 4D        7.280e+02  4.892e+02   1.488 0.137147    
+## TrimQuad Coupe 2D       -3.867e+03  5.514e+02  -7.012 5.35e-12 ***
+## TrimSE Sedan 4D         -1.390e+03  4.051e+02  -3.430 0.000637 ***
+## TrimSedan 4D            -9.262e+01  4.008e+02  -0.231 0.817296    
+## TrimSLE Sedan 4D                NA         NA      NA       NA    
+## TrimSpecial Ed Ultra 4D  1.653e+03  5.687e+02   2.907 0.003764 ** 
+## TrimSportwagon 4D               NA         NA      NA       NA    
+## TrimSS Coupe 2D                 NA         NA      NA       NA    
+## TrimSS Sedan 4D          6.183e+03  5.107e+02  12.107  < 2e-16 ***
+## TrimSVM Hatchback 4D    -7.948e+02  4.072e+02  -1.952 0.051334 .  
+## TrimSVM Sedan 4D                NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 903.3 on 730 degrees of freedom
+## Multiple R-squared:  0.9924, Adjusted R-squared:  0.9916 
+## F-statistic:  1307 on 73 and 730 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\hypertarget{median-is-more-small-then-before.}{%
+\paragraph{Median is more small then
+before.}\label{median-is-more-small-then-before.}}
+
+\hypertarget{adj-r2-99.16-less-good-enough.}{%
+\paragraph{Adj R\^{}2 99.16 less (good
+enough).}\label{adj-r2-99.16-less-good-enough.}}
+
+\hypertarget{all-must-values-are-significant.}{%
+\paragraph{All must values are
+significant.}\label{all-must-values-are-significant.}}
+
+\hypertarget{residual-standard-error-903-doller-and-mean-absolute-error-613-close}{%
+\paragraph{Residual Standard error 903 doller and Mean absolute error
+613
+(close)}\label{residual-standard-error-903-doller-and-mean-absolute-error-613-close}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kbb }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(Model }\SpecialCharTok{==} \StringTok{"Vibe"} \SpecialCharTok{|}\NormalTok{ Trim }\SpecialCharTok{==} \StringTok{"SLE Sedan 4D"}\NormalTok{ ) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Price Mileage    Make      Model              Trim  Type Cylinder Liter
+## 1  23197.44    2295 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 2  23102.02    5653 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 3  22460.53    8928 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 4  21607.77   11069 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 5  22004.93   15516 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 6  20830.99   19419 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 7  20109.90   22891 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 8  19116.13   26252 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 9  19689.74   27077 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 10 19338.38   27966 Pontiac Bonneville      SLE Sedan 4D Sedan        6   3.8
+## 11 16391.93   18096 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 12 16033.93   18391 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 13 16106.83   19465 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 14 16551.22   19531 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 15 17325.27   19894 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 16 16078.67   22779 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 17 15297.84   23062 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 18 15505.29   24239 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 19 15174.35   27887 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 20 14546.88   33374 Pontiac       Vibe AWD Sportwagon 4D Wagon        4   1.8
+## 21 17803.28   12303 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 22 16353.10   16078 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 23 15977.91   17053 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 24 15568.97   18206 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 25 15589.78   21307 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 26 15730.05   21391 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 27 15802.65   21461 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 28 15086.90   27438 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 29 14396.27   31424 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 30 14869.28   31791 Pontiac       Vibe     GT Sportwagon Wagon        4   1.8
+## 31 16927.78    2973 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 32 17418.07    4463 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 33 16379.10    8754 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 34 16706.67    9150 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 35 17214.33   12610 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 36 15821.95   14304 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 37 14398.92   21688 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 38 15622.12   23217 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 39 14909.05   23323 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+## 40 14853.20   24270 Pontiac       Vibe     Sportwagon 4D Wagon        4   1.8
+##    Doors Cruise Sound Leather
+## 1      4    yes   yes     yes
+## 2      4    yes    no      no
+## 3      4    yes    no     yes
+## 4      4    yes    no     yes
+## 5      4    yes   yes     yes
+## 6      4    yes   yes      no
+## 7      4    yes   yes     yes
+## 8      4    yes    no     yes
+## 9      4    yes   yes      no
+## 10     4    yes    no     yes
+## 11     4    yes   yes      no
+## 12     4     no   yes     yes
+## 13     4    yes    no      no
+## 14     4    yes   yes     yes
+## 15     4    yes    no      no
+## 16     4     no    no     yes
+## 17     4     no    no      no
+## 18     4    yes    no      no
+## 19     4     no    no      no
+## 20     4     no   yes     yes
+## 21     4    yes   yes     yes
+## 22     4     no   yes      no
+## 23     4     no    no     yes
+## 24     4     no    no      no
+## 25     4     no    no      no
+## 26     4     no   yes     yes
+## 27     4     no    no      no
+## 28     4     no    no     yes
+## 29     4     no    no      no
+## 30     4    yes   yes     yes
+## 31     4     no    no      no
+## 32     4    yes    no     yes
+## 33     4     no   yes      no
+## 34     4     no    no      no
+## 35     4    yes   yes     yes
+## 36     4     no    no     yes
+## 37     4     no    no      no
+## 38     4    yes   yes     yes
+## 39     4     no   yes     yes
+## 40     4     no    no      no
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(forcats)}
+
+\NormalTok{kbb }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(Model, Trim) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{pull}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## .
+##        Aero Conv 2D       Aero Sedan 4D       Aero Wagon 4D         Arc Conv 2D 
+##                  10                  20                  10                  10 
+##        Arc Sedan 4D        Arc Wagon 4D   AWD Sportwagon 4D             Conv 2D 
+##                  20                  10                  10                  10 
+##            Coupe 2D     Custom Sedan 4D         CX Sedan 4D        CXL Sedan 4D 
+##                  50                  10                  10                  10 
+##        CXS Sedan 4D        DHS Sedan 4D        DTS Sedan 4D         GT Coupe 2D 
+##                  10                  10                  10                  10 
+##         GT Sedan 4D       GT Sportwagon        GTP Sedan 4D        GXP Sedan 4D 
+##                  20                  10                  10                  10 
+##     Hardtop Conv 2D       L300 Sedan 4D    Limited Sedan 4D      Linear Conv 2D 
+##                  10                  10                  10                  10 
+##     Linear Sedan 4D     Linear Wagon 4D         LS Coupe 2D     LS Hatchback 4D 
+##                  10                  14                  30                  10 
+##    LS MAXX Hback 4D         LS Sedan 4D   LS Sport Coupe 2D   LS Sport Sedan 4D 
+##                  10                  50                  10                  10 
+##         LT Coupe 2D     LT Hatchback 4D    LT MAXX Hback 4D         LT Sedan 4D 
+##                  10                  10                  10                  30 
+##       MAXX Hback 4D       Quad Coupe 2D         SE Sedan 4D            Sedan 4D 
+##                  10                  20                  20                 170 
+##        SLE Sedan 4D Special Ed Ultra 4D       Sportwagon 4D         SS Coupe 2D 
+##                  10                  10                  10                  10 
+##         SS Sedan 4D    SVM Hatchback 4D        SVM Sedan 4D 
+##                  10                  10                  10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kbb }\OtherTok{\textless{}{-}}\NormalTok{ kbb }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Model =}\NormalTok{ forcats}\SpecialCharTok{::}\FunctionTok{fct\_collapse}\NormalTok{(Model, }
+                    \AttributeTok{Vibo =} \FunctionTok{c}\NormalTok{(}\StringTok{"AVEO"}\NormalTok{, }\StringTok{"Ion"}\NormalTok{, }\StringTok{"Monte Carlo"}\NormalTok{, }\StringTok{"Park Avenue"}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Trim =} \FunctionTok{fct\_collapse}\NormalTok{(Trim, }\AttributeTok{Bal =} \FunctionTok{c}\NormalTok{(}\StringTok{"SLE Sedan 4D"}\NormalTok{, }\StringTok{"SLE Sedan 4D"}\NormalTok{,}
+                               \StringTok{"SS Coupe 2D"}\NormalTok{, }\StringTok{"SVM Sedan 4D"}\NormalTok{,}
+                                \StringTok{"LT Coupe 2D"}\NormalTok{,}
+                                  \StringTok{"SE Sedan 4D"}\NormalTok{,                                                                                    }
+                              \StringTok{"SVM Hatchback 4D"}\NormalTok{)))}
+
+
+\NormalTok{mod2 }\OtherTok{\textless{}{-}} \FunctionTok{update}\NormalTok{(mod2, }\AttributeTok{data =}\NormalTok{ kbb)}
+\FunctionTok{summary}\NormalTok{(mod2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Price ~ Mileage + Cylinder + Doors + Cruise + Sound + 
+##     Leather + Make + Model + Trim, data = kbb)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6530.7  -464.5    10.5   468.7  4431.4 
+## 
+## Coefficients: (10 not defined because of singularities)
+##                           Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)              2.295e+04  2.667e+03   8.603  < 2e-16 ***
+## Mileage                 -1.850e-01  4.103e-03 -45.100  < 2e-16 ***
+## Cylinder                 3.212e+03  2.223e+02  14.447  < 2e-16 ***
+## Doors                   -2.556e+03  2.650e+02  -9.643  < 2e-16 ***
+## Cruiseyes                5.954e+01  1.031e+02   0.578 0.563769    
+## Soundyes                 2.077e+02  8.076e+01   2.572 0.010293 *  
+## Leatheryes               2.898e+02  9.405e+01   3.082 0.002134 ** 
+## MakeCadillac             2.235e+04  7.522e+02  29.708  < 2e-16 ***
+## MakeChevrolet           -6.522e+03  4.922e+02 -13.250  < 2e-16 ***
+## MakePontiac             -7.112e+03  9.838e+02  -7.229 1.23e-12 ***
+## MakeSAAB                 3.688e+03  9.862e+02   3.740 0.000199 ***
+## MakeSaturn              -3.455e+03  5.556e+02  -6.218 8.44e-10 ***
+## Model9_3 HO              1.110e+03  6.707e+02   1.654 0.098468 .  
+## Model9_5                 2.551e+03  7.905e+02   3.227 0.001308 ** 
+## Model9_5 HO              3.103e+03  7.862e+02   3.947 8.66e-05 ***
+## Model9-2X AWD           -2.698e+03  9.570e+02  -2.819 0.004948 ** 
+## ModelVibo                6.055e+02  4.266e+02   1.419 0.156226    
+## ModelBonneville          4.872e+03  8.101e+02   6.014 2.86e-09 ***
+## ModelCavalier            2.611e+03  5.523e+02   4.727 2.73e-06 ***
+## ModelCentury            -6.611e+03  5.935e+02 -11.139  < 2e-16 ***
+## ModelClassic             4.139e+03  5.908e+02   7.005 5.59e-12 ***
+## ModelCobalt              3.565e+03  5.298e+02   6.729 3.45e-11 ***
+## ModelCorvette            1.383e+04  5.731e+02  24.135  < 2e-16 ***
+## ModelCST-V              -6.341e+03  7.565e+02  -8.381 2.67e-16 ***
+## ModelCTS                -1.507e+04  6.267e+02 -24.051  < 2e-16 ***
+## ModelDeville            -1.835e+04  7.564e+02 -24.262  < 2e-16 ***
+## ModelG6                  4.025e+03  6.843e+02   5.882 6.17e-09 ***
+## ModelGrand Am            4.698e+03  6.329e+02   7.424 3.16e-13 ***
+## ModelGrand Prix          1.496e+03  6.857e+02   2.182 0.029461 *  
+## ModelGTO                 7.328e+03  1.042e+03   7.033 4.63e-12 ***
+## ModelImpala              1.705e+03  2.833e+02   6.019 2.77e-09 ***
+## ModelL Series           -9.160e+03  5.863e+02 -15.623  < 2e-16 ***
+## ModelLacrosse           -5.927e+03  6.966e+02  -8.508  < 2e-16 ***
+## ModelLesabre            -7.268e+03  6.964e+02 -10.437  < 2e-16 ***
+## ModelMalibu                     NA         NA      NA       NA    
+## ModelSTS-V6             -7.683e+03  6.264e+02 -12.265  < 2e-16 ***
+## ModelSTS-V8             -8.554e+03  7.565e+02 -11.308  < 2e-16 ***
+## ModelSunfire             3.615e+03  6.001e+02   6.025 2.68e-09 ***
+## ModelVibe                       NA         NA      NA       NA    
+## ModelXLR-V8                     NA         NA      NA       NA    
+## TrimAero Sedan 4D       -1.356e+03  6.711e+02  -2.021 0.043679 *  
+## TrimAero Wagon 4D        1.908e+02  7.852e+02   0.243 0.808058    
+## TrimArc Conv 2D          3.535e+03  4.108e+02   8.606  < 2e-16 ***
+## TrimArc Sedan 4D         1.528e+03  6.735e+02   2.269 0.023548 *  
+## TrimArc Wagon 4D         2.035e+03  7.870e+02   2.586 0.009889 ** 
+## TrimAWD Sportwagon 4D    1.410e+03  4.127e+02   3.416 0.000671 ***
+## TrimConv 2D             -6.259e+03  7.789e+02  -8.036 3.72e-15 ***
+## TrimCoupe 2D            -1.122e+04  6.627e+02 -16.936  < 2e-16 ***
+## TrimCustom Sedan 4D     -2.862e+03  4.110e+02  -6.964 7.34e-12 ***
+## TrimCX Sedan 4D         -2.732e+03  4.111e+02  -6.646 5.89e-11 ***
+## TrimCXL Sedan 4D        -1.387e+03  4.115e+02  -3.370 0.000790 ***
+## TrimCXS Sedan 4D                NA         NA      NA       NA    
+## TrimDHS Sedan 4D        -1.585e+03  5.532e+02  -2.866 0.004278 ** 
+## TrimDTS Sedan 4D        -9.373e+02  5.531e+02  -1.695 0.090555 .  
+## TrimGT Coupe 2D         -1.635e+04  7.522e+02 -21.735  < 2e-16 ***
+## TrimGT Sedan 4D         -5.539e+03  4.717e+02 -11.744  < 2e-16 ***
+## TrimGT Sportwagon        1.062e+03  4.120e+02   2.579 0.010107 *  
+## TrimGTP Sedan 4D        -2.672e+03  5.357e+02  -4.989 7.59e-07 ***
+## TrimGXP Sedan 4D        -9.960e+03  6.685e+02 -14.900  < 2e-16 ***
+## TrimHardtop Conv 2D             NA         NA      NA       NA    
+## TrimL300 Sedan 4D               NA         NA      NA       NA    
+## TrimLimited Sedan 4D            NA         NA      NA       NA    
+## TrimLinear Conv 2D       2.005e+03  6.715e+02   2.986 0.002917 ** 
+## TrimLinear Sedan 4D             NA         NA      NA       NA    
+## TrimLinear Wagon 4D      1.289e+03  7.875e+02   1.637 0.101992    
+## TrimLS Coupe 2D         -1.064e+04  5.961e+02 -17.853  < 2e-16 ***
+## TrimLS Hatchback 4D     -4.894e+03  5.205e+02  -9.403  < 2e-16 ***
+## TrimLS MAXX Hback 4D    -5.116e+03  4.945e+02 -10.346  < 2e-16 ***
+## TrimLS Sedan 4D         -5.182e+03  3.697e+02 -14.018  < 2e-16 ***
+## TrimLS Sport Coupe 2D   -1.083e+04  6.988e+02 -15.504  < 2e-16 ***
+## TrimLS Sport Sedan 4D   -5.099e+03  4.920e+02 -10.364  < 2e-16 ***
+## TrimBal                 -6.578e+03  4.768e+02 -13.797  < 2e-16 ***
+## TrimLT Hatchback 4D     -4.640e+03  5.241e+02  -8.854  < 2e-16 ***
+## TrimLT MAXX Hback 4D    -4.703e+03  4.942e+02  -9.517  < 2e-16 ***
+## TrimLT Sedan 4D         -5.055e+03  4.146e+02 -12.193  < 2e-16 ***
+## TrimMAXX Hback 4D       -5.456e+03  4.953e+02 -11.015  < 2e-16 ***
+## TrimQuad Coupe 2D       -9.746e+03  6.907e+02 -14.112  < 2e-16 ***
+## TrimSedan 4D            -6.274e+03  3.699e+02 -16.964  < 2e-16 ***
+## TrimSpecial Ed Ultra 4D -4.530e+03  5.526e+02  -8.197 1.10e-15 ***
+## TrimSportwagon 4D               NA         NA      NA       NA    
+## TrimSS Sedan 4D                 NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 918.4 on 733 degrees of freedom
+## Multiple R-squared:  0.9921, Adjusted R-squared:  0.9914 
+## F-statistic:  1318 on 70 and 733 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(mod2, }\AttributeTok{sub.caption =} \StringTok{" "}\NormalTok{, }\AttributeTok{which =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ST442HW5_files/figure-latex/unnamed-chunk-18-1.pdf}
+\includegraphics{ST442HW5_files/figure-latex/unnamed-chunk-18-2.pdf}
+\includegraphics{ST442HW5_files/figure-latex/unnamed-chunk-18-3.pdf}
+
+\hypertarget{nor-q-q-plot-little-right-skew-all-most-look-like-normal.}{%
+\paragraph{Nor q-q plot little right skew, all most look like
+normal.}\label{nor-q-q-plot-little-right-skew-all-most-look-like-normal.}}
+
+\hypertarget{root-standardized-residuals-vs-fitted-values-find-some-outloiers-overall}{%
+\paragraph{root standardized residuals vs fitted values find some
+outloiers
+overall}\label{root-standardized-residuals-vs-fitted-values-find-some-outloiers-overall}}
+
+\hypertarget{not-bad.}{%
+\paragraph{not bad.}\label{not-bad.}}
+
+\hypertarget{find-some-outlier-standardized-residuals-vs-leverage.}{%
+\paragraph{Find some outlier standardized residuals Vs
+Leverage.}\label{find-some-outlier-standardized-residuals-vs-leverage.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod2\_log\_SP }\OtherTok{\textless{}{-}} \FunctionTok{update}\NormalTok{(mod2, }\FunctionTok{log}\NormalTok{(Price) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ .)}
+\FunctionTok{summary}\NormalTok{(mod2\_log\_SP)}\SpecialCharTok{$}\NormalTok{sigma}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0261353
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mae\_mod2\_log\_SP }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{abs}\NormalTok{(}\FunctionTok{log}\NormalTok{(kbb}\SpecialCharTok{$}\NormalTok{Price) }\SpecialCharTok{{-}}\NormalTok{ mod2\_log\_SP}\SpecialCharTok{$}\NormalTok{fitted.values))}
+\NormalTok{mae\_mod2\_log\_SP}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01927887
+\end{verbatim}
+
+\hypertarget{estimate-relative-error-1.92-to-2.61-not-bad}{%
+\paragraph{Estimate relative error 1.92\% to 2.61\% Not
+Bad}\label{estimate-relative-error-1.92-to-2.61-not-bad}}
+
+\hypertarget{over-analysis-shows-that-best-fit-model-is-mod2}{%
+\paragraph{Over analysis shows that best fit model is
+mod2}\label{over-analysis-shows-that-best-fit-model-is-mod2}}
+
+\hypertarget{writeup-a-short-discussion-summarizing-the-three-main-choices-you-made-in}{%
+\subsubsection{Writeup a short discussion summarizing the three main
+choices you made
+in}\label{writeup-a-short-discussion-summarizing-the-three-main-choices-you-made-in}}
+
+\hypertarget{choosing-a-suitable-model-for-this-problem-as-well-as-what-you-learn-when}{%
+\subsubsection{choosing a suitable model for this problem as well as
+what you learn
+when}\label{choosing-a-suitable-model-for-this-problem-as-well-as-what-you-learn-when}}
+
+\hypertarget{trying-to-find-a-suitable-model.}{%
+\subsubsection{trying to find a suitable
+model.}\label{trying-to-find-a-suitable-model.}}
+
+\hypertarget{the-three-main-choice-are-1.-try-to-make-residual-standard-error-and-mean}{%
+\paragraph{The three main choice are: 1. Try to make residual standard
+error and
+mean}\label{the-three-main-choice-are-1.-try-to-make-residual-standard-error-and-mean}}
+
+\hypertarget{absolute-error-are-small.2.-try-to-make-adj-r2-and-r2-value-big-and}{%
+\paragraph{absolute error are small.2. Try to make Adj R\^{}2 and R\^{}2
+value big
+and}\label{absolute-error-are-small.2.-try-to-make-adj-r2-and-r2-value-big-and}}
+
+\hypertarget{p-value-highly-significant.-we-do-remove-not-significant-value-on-the-model}{%
+\paragraph{p-value highly significant. We do remove not significant
+value on the
+model}\label{p-value-highly-significant.-we-do-remove-not-significant-value-on-the-model}}
+
+\hypertarget{we-plot-diffrent-plot-for-example-q-q-plot-root-standardized-residuals}{%
+\paragraph{3. We plot diffrent plot for example q-q plot, root
+standardized
+residuals}\label{we-plot-diffrent-plot-for-example-q-q-plot-root-standardized-residuals}}
+
+\hypertarget{vs-fitted-values.-and-plot-standardized-residuals-vs-leverage.}{%
+\paragraph{vs fitted values. And, plot standardized residuals Vs
+Leverage.}\label{vs-fitted-values.-and-plot-standardized-residuals-vs-leverage.}}
+
+\hypertarget{these-are-important-point-to-figure-out-good-model.}{%
+\paragraph{These are important point to figure out good
+model.}\label{these-are-important-point-to-figure-out-good-model.}}
+
+\hypertarget{the-best-model-i-was-able-to-find-has-a-residual-standard-error-of-roughly}{%
+\subsubsection{The ``best'' model I was able to find has a residual
+standard error of
+roughly}\label{the-best-model-i-was-able-to-find-has-a-residual-standard-error-of-roughly}}
+
+\hypertarget{but-my-model-could-very-much-be-overfitting-to-the-data.}{%
+\subsubsection{520\$ but my model could very much be overfitting to the
+data.}\label{but-my-model-could-very-much-be-overfitting-to-the-data.}}
+
+\hypertarget{i-am-trying-to-do-small-residual-standard-error-roughly-i-get-around-900}{%
+\paragraph{I am trying to do small residual standard error roughly I get
+around
+900\$}\label{i-am-trying-to-do-small-residual-standard-error-roughly-i-get-around-900}}
+
+\hypertarget{i-know-that-is-still-high.}{%
+\paragraph{I know that is still
+high.}\label{i-know-that-is-still-high.}}
+
+\hypertarget{the-end}{%
+\subsection{THE END}\label{the-end}}
+
+\end{document}

@@ -1,0 +1,185 @@
+---
+title: "Assignment4"
+author: "Rabin Paudel"
+date: "10/18/2021"
+output: pdf_document
+---
+## Problem 1 (30 pts)
+#### This problem uses the corpus of common words in the stringr library. 
+#### You can load this corpus using the following command.
+```{r}
+library(stringr) ## First do an install.packages("stringr") if this library is missing.
+data (words)
+head(words) ## A snippet of the data
+```
+
+### 1.a (10 pts)
+#### sing the above corpus, create regular expressions that find all words that 
+#### (each of the following is a separate regexp)
+#### Start with y 
+```{r}
+words %>% str_subset("^y")
+```
+
+#### Or
+
+```{r}
+str_view(words, "^y", match = TRUE)
+```
+
+#### End with x
+```{r}
+words %>% str_subset("x$")
+```
+#### Or
+```{r}
+str_view(words, "x$", match = TRUE)
+```
+
+#### Are exactly six letters long (you are not allowed to use str_length() :-))
+
+```{r}
+str_view(words, "^......$", match = TRUE)
+```
+
+#### Are exactly five letters long and is a palindrome.
+
+```{r}
+str_view(words, "^(.)(.).\\2\\1$", match = TRUE)
+```
+
+#### End with ed but not eed.
+
+```{r}
+str_view(words, "[^e]ed$", match = TRUE)
+```
+
+#### Start with three consonants (the letter y is a consonant) or have three or 
+#### more vowels in a row.
+
+```{r}
+str_view(words, "^[^aeoiouy]{3}" , match = TRUE) 
+str_view(words, "[aeiou]{3}", match = TRUE)
+```
+
+#### Have two or more vowel-consonant pairs in a row.
+
+```{r}
+str_view(words, "([aeiou][^aeiou]){2,}", match = TRUE)
+```
+
+#### Start and end with the same character.
+
+```{r}
+str_view(words, "^(.).*\\1$", match = TRUE)
+```
+
+#### Contain one letter repeated in at least three places (for example the word 
+#### eleven contains three es)
+
+```{r}
+str_view(words, "(.).+\\1.+\\1", match = TRUE)
+```
+
+### b.(10 pts)
+### Using the above corpus, find the top words that have
+#### the highest number of vowels
+
+```{r}
+library(tidyverse)
+vowels <- c("a","e","i","o","u")
+vowel_number <- tibble(words = words,
+                       n_vowel = str_count(words, vowels))
+vowel_number %>% arrange(desc(n_vowel)) %>% head(10)
+```
+
+#### the highest proportion of vowels.
+```{r}
+vowel_pro <- tibble(words = words,
+                    n_string = str_length(words),
+                    n_vowel = str_count(words, vowels),
+                    prop_vol = n_vowel/n_string)
+vowel_pro %>% arrange(desc(prop_vol)) %>% head(10)
+```
+### c. (10 pts)
+#### ow switch the first and last letters for each word in the words corpus. 
+#### Which of those strings are still words ? Hint: See the last example in 
+#### section 14.4.4 of R for data science. See also set operations.
+
+#### I just print top 20.
+```{r}
+str_replace(words, "(^.)(.*)(.$)", "\\3\\2\\1") %>% head(20)
+```
+
+## Problem 2 (30 pts)
+#### You can download the data as follows.
+
+```{r}
+#install.packages("gutenbergr")
+library(gutenbergr)
+#install.packages("dplyr")
+library(dplyr)
+library(ggplot2)
+shakespeare_complete <- gutenberg_download(100)
+shakespeare_complete
+```
+
+#### Using this data, answer the following question.
+
+### a. (10pts)
+
+#### se regular expression to determine the number of speaking lines in all of 
+#### the works of William Shakespeare. Here we care only about how many times a 
+#### character speaks, not what they say or for how long they speak.
+
+#### #We find number of line Particular character speaks columns n
+
+```{r}
+new_one <- shakespeare_complete$text %>%str_subset("[:upper:]\\.$") 
+new_two <- data.frame("x" = c(new_one))
+#new_two
+df <- new_two %>% group_by(x) %>% count(x, sort = TRUE) 
+df
+#or
+sha <- shakespeare_complete %>% 
+  mutate(field = str_extract(text,"[:upper:]\\.$")) %>% 
+  filter(field != "NA") %>% select(text) %>% count(text, sort = TRUE) 
+sha
+```
+
+### b. (10pts)
+#### Make a bar chart or table displaying the top 30 characters with the 
+#### greatest number of lines.
+
+```{r}
+new_one <- shakespeare_complete$text %>%str_subset("[:upper:]\\.$") 
+new_two <- data.frame("x" = c(new_one))
+#new_two
+df <- new_two %>% group_by(x) %>% count(x, sort = TRUE) %>% head(30)
+df
+#or
+sha <- shakespeare_complete %>% 
+  mutate(field = str_extract(text,"[:upper:]\\.$")) %>% 
+  filter(field != "NA") %>% select(text) %>% count(text, sort = TRUE) %>%
+  head(30) 
+sha
+
+ggplot(sha, aes(x=text, y=n)) + 
+  geom_bar(stat = "identity", color = "red", width = 0.5) +
+  xlab("Text") + ylab("Total Count") + 
+  ggtitle("Bar Chart Displaying The Top 30 Characters With Greatest Number")
+```
+
+### c. (10pts)
+#### ind all hyphenated words used in the complete works of Shakespeare. 
+#### How many hyphenated words are there ? Hint: you might want to use the 
+#### function str_extract that is part of the stringr library.
+
+```{r}
+sha <- shakespeare_complete %>% 
+  mutate(fiel = str_extract(text,"(?:[a-z]+-[a-z]+)")) %>% 
+  filter(fiel != "NA") %>% select(text) %>% count(text, sort = TRUE)
+sha
+sha%>% count()
+```
+

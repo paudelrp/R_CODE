@@ -1,0 +1,147 @@
+
+#### We can instill this library and load the dataset using the 
+#### folowing code chunk.
+```{r}
+#install.packages("gapminder")
+#install.packages("dplyr")
+library(gapminder)
+library(dplyr)
+gapminder
+
+```
+## Problem 1
+## Q.N1 Code 
+
+```{r}
+gapminder %>% count(continent)
+```
+#### Here is the result of number of observation per continent.
+#### Africa:   624
+#### Americas: 300
+#### Asia:     396
+#### Europe:   360
+#### Oceania:   24
+
+## Q.N2 Code 
+
+```{r}
+gapminder  %>% group_by(continent) %>% summarise(CountryCount = 
+                                                    n_distinct(country))
+```
+
+#### Here is (distinct) countries do we have each continent
+#### Africa:   52
+#### Americas: 25
+#### Asia:     33
+#### Europe:   30
+#### Oceania:   2
+
+## Q.N3 Code
+#### Try to create new column named gdp_ration to find the with the help of 
+#### given code.
+
+```{r}
+gapminder %>% arrange(country,year) %>% mutate(gdpRatio 
+                          = gdpPercap/gdpPercap[country == "United States"])
+GDP1 <- mutate (gapminder, GDP = pop*gdpPercap)
+GDP1 %>% arrange(country,year) %>% mutate(gdp_ratio = 
+                                            GDP/GDP[country == "United States"])
+
+```
+
+## Q.N4 Code
+#### Try to find lowest and highest lifeExpectancy.
+
+```{r}
+gapminder %>% group_by(country) %>% filter(lifeExp < 30)
+gapminder %>% group_by(country) %>% filter(lifeExp > 82)
+```
+#### The Lowest life expectancy country is: Rwanda in Africa
+#### and Afghanistan in Asia.
+#### And the highest Life Expectancy country is Japan and Hong Kong in Asia.
+
+## Q.N5 Code
+#### To find the country that experienced the sharpest 5 year deop in life
+#### expectancy during the period from 1952 to 1997.
+
+```{r}
+gapminder %>% group_by(country) %>% mutate(lifeExp_change = 
+                                               lifeExp - lag(lifeExp)) %>%
+ select(lifeExp_change, everything()) %>% filter(year >= 1952 & 
+                                                     year <= 1997 ) %>% 
+   filter(continent =="Africa") %>% filter(lifeExp_change < -10) 
+```
+#### Change continent and Life Expectancy change is every time and enter manually 
+#### The Sharpest 5 year drop in life expectancy continent are: 
+#### Africa:   Rwanda
+#### Americas: El Salvador
+#### Asia:     Cambodia
+#### Europe:   Bulgaria
+#### Oceania:   Non Of the country
+
+## Problem 2
+## Q.N1 Code 
+```{r}
+#install.packages("nycflights13")
+library(nycflights13)
+flights %>% select(dep_time, sched_dep_time, dep_delay, arr_time, arr_delay)
+flights %>% filter( arr_delay > 900 & dep_delay >900) %>% 
+    select(dep_delay, tailnum)
+
+flights %>% group_by(tailnum) %>% filter(tailnum == "N384HA") %>%
+      filter(arr_delay > 0 & dep_delay) %>% 
+      summarise(NumOfFlight = n_distinct(tailnum))
+```
+
+#### The Flight N384HA worst flight one time record total number of delay is 1301.
+
+## Q.N2 Code 
+#### Yes, the proportion of canceled flights per day related to the average 
+#### delay per day.
+
+```{r}
+flights %>% group_by(dest) %>%
+   filter(n() > 365, arr_delay >0) %>%
+   mutate(prop_canflight = arr_delay/sum(arr_delay)) %>%
+   select(year:day, dest, arr_delay, prop_canflight)
+```
+
+## Q.N3 Code
+
+```{r}
+library(dplyr)
+ library(nycflights13)
+ data(flights)
+ flights_tod <- flights %>% mutate(time_of_day = case_when(
+   sched_dep_time <= 1100 ~ "morning",
+   between(sched_dep_time,1101,1400) ~ "noon",
+   between(sched_dep_time,1401,1800) ~ "afternoon",
+   sched_dep_time > 1801 ~ "evening"
+ )) %>% select(time_of_day, everything())
+ flights_tod
+flights_tod %>% filter(time_of_day == "morning" & arr_delay > 0) %>%  
+  summarise(MorningDelay = n_distinct(arr_delay))
+flights_tod %>% filter(time_of_day == "noon" & arr_delay > 0) %>%  
+  summarise(noonDelay = n_distinct(arr_delay))  
+flights_tod %>% filter(time_of_day == "afternoon" & arr_delay > 0) %>%  
+  summarise(afternoonDelay = n_distinct(arr_delay))   
+flights_tod %>% filter(time_of_day == "evening" & arr_delay > 0) %>%  
+  summarise(eveningDelay = n_distinct(arr_delay))  
+```
+
+#### noon flight better because evening time less delay then other time.
+
+## Q.N4 Code
+#arrange the flights in order of month followed by day followed by 
+#deptime before using lag.
+
+```{r}
+flights_new <- flights %>% arrange(month,day,dep_time) %>% group_by(origin) %>% 
+mutate(delay = lag(dep_delay))
+flights_new
+flights_new <- flights %>% arrange(month,day,dep_time) %>% group_by(origin) %>% 
+   mutate(prev_dep_delay = lag(dep_delay)) %>% ungroup()
+flights_new
+```
+
+## The End
