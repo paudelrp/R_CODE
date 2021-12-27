@@ -1,6 +1,5 @@
 ---
 title: "Dayton's Weather in 2014"
-author: "Rabin Paudel"
 date: "12/26/2021"
 output: pdf_document
 ---
